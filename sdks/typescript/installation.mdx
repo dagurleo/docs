@@ -1,0 +1,41 @@
+---
+title: "Installation"
+description: "Installation instructions for the Typescript SDK"
+---
+
+## Installation
+
+The ContentMod Typescript SDK is available on npm. To install it, run the following command:
+
+<CodeGroup>
+
+```bash npm
+npm i @contentmod/sdk
+```
+
+```bash yarn
+yarn add @contentmod/sdk
+```
+
+```bash pnpm
+pnpm add @contentmod/sdk
+```
+
+```bash bun
+bun add @contentmod/sdk
+```
+
+</CodeGroup>
+
+## Initializing the Client
+
+To initialize the client with your access key and secret key, you can use the following code:
+
+```ts index.ts
+import { ContentMod } from "@contentmod/sdk";
+
+const contentMod = new ContentMod({
+  publicKey: "<YOUR_PUBLIC_KEY>",
+  secretKey: "<YOUR_SECRET_KEY>",
+});
+```

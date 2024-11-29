@@ -44,6 +44,20 @@
       "pages": ["introduction", "quickstart", "development"]
     },
     {
+      "group": "SDKS",
+      "pages": [
+        {
+          "group": "TypeScript / JavaScript",
+          "icon": "js",
+          "pages": [
+            "sdks/typescript/installation",
+            "sdks/typescript/moderate-text",
+            "sdks/typescript/moderate-image"
+          ]
+        }
+      ]
+    },
+    {
       "group": "Essentials",
       "pages": [
         "essentials/markdown",
