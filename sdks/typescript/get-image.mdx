@@ -1,0 +1,28 @@
+---
+title: "Get Image Moderation"
+description: "Get an image moderation by its ID"
+icon: "image"
+---
+
+import ImageModRes from "/snippets/image-mod-res.mdx";
+
+To get an image moderation by its ID, use the `image.get` function:
+
+```ts index.ts
+import { ContentMod } from "@contentmod/sdk";
+
+const contentMod = new ContentMod({
+  publicKey: "<YOUR_PUBLIC_KEY>",
+  secretKey: "<YOUR_SECRET_KEY>",
+});
+
+const moderationId = "<MODERATION_ID>";
+
+const imageMod = await contentMod.image.get(moderationId);
+
+console.log(imageMod);
+```
+
+Please refer to the [Get Image Api Response](/api-reference/image/get) for more information on the `ImageModerationResponse` object.
+
+<ImageModRes />

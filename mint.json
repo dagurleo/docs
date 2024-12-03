@@ -11,10 +11,16 @@
     "light": "#e11d48",
     "dark": "#e11d48",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#fcebee",
+      "to": "#e11d48"
     }
   },
+  "redirects": [
+    {
+      "source": "/quickstart",
+      "destination": "/sdks/typescript/installation"
+    }
+  ],
   "topbarLinks": [
     {
       "name": "Support",
@@ -35,13 +41,22 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://docs.contentmod.io"
+      "url": "https://docs.contentmod.io/introduction"
+    },
+    {
+      "name": "Support",
+      "icon": "envelope",
+      "url": "mailto:hello@contentmod.io"
     }
   ],
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
+      "pages": ["introduction", "quickstart"]
+    },
+    {
+      "group": "Projects",
+      "pages": ["projects/intro", "projects/billing"]
     },
     {
       "group": "SDKS",
@@ -52,20 +67,11 @@
           "pages": [
             "sdks/typescript/installation",
             "sdks/typescript/moderate-text",
-            "sdks/typescript/moderate-image"
+            "sdks/typescript/get-text",
+            "sdks/typescript/moderate-image",
+            "sdks/typescript/get-image"
           ]
         }
-      ]
-    },
-    {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
       ]
     },
     {

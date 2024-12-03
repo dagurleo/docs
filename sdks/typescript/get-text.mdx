@@ -1,0 +1,28 @@
+---
+title: "Get Text Moderation"
+description: "Get a text moderation by its ID"
+icon: "text"
+---
+
+import TextModRes from "/snippets/text-mod-res.mdx";
+
+To get a text moderation by its ID, use the `text.get` function:
+
+```ts index.ts
+import { ContentMod } from "@contentmod/sdk";
+
+const contentMod = new ContentMod({
+  publicKey: "<YOUR_PUBLIC_KEY>",
+  secretKey: "<YOUR_SECRET_KEY>",
+});
+
+const moderationId = "<MODERATION_ID>";
+
+const textMod = await contentMod.text.get(moderationId);
+
+console.log(textMod);
+```
+
+Please refer to the [Get Text Api Response](/api-reference/text/get) for more information on the `TextModerationResponse` object.
+
+<TextModRes />
