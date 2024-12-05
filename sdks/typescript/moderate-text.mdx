@@ -25,6 +25,15 @@ const response2 = await contentMod.text.moderate("Some bad text", {
     userId: "1234",
   },
 });
+
+// Optionally you can pass in an webhook callback url if you want to be notified when the moderation request is completed
+const response3 = await contentMod.text.moderate("Some bad text", {
+  callbackUrl: "https://example.com/webhook",
+});
 ```
+
+### Webhook Callback
+
+If you pass in a webhook callback url, the response will only be an object with the `id` property.
 
 <TextModRes />

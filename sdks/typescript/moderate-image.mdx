@@ -32,7 +32,22 @@ const response2 = await contentMod.image.moderate(
     },
   }
 );
+
+// Optionally you can pass in an webhook callback url if you want to be notified when the moderation request is completed
+const response3 = await contentMod.image.moderate(
+  "https://example.com/image.jpg",
+  {
+    meta: {
+      userId: "1234",
+    },
+    callbackUrl: "https://example.com/webhook",
+  }
+);
 ```
+
+### Webhook Callback
+
+If you pass in a webhook callback url, the response will only be an object with the `id` property.
 
 ### Image from Base64 encoded string
 

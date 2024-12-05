@@ -27,7 +27,8 @@
                   "options": {
                     "type": "object",
                     "properties": {
-                      "meta": { "type": "object", "properties": {} }
+                      "meta": { "type": "object", "properties": {} },
+                      "callbackUrl": { "type": "string", "format": "uri" }
                     }
                   }
                 },
@@ -227,7 +228,8 @@
                 }
               }
             }
-          }
+          },
+          "204": { "description": "No content when using a webhook" }
         }
       }
     },
@@ -477,7 +479,8 @@
                   "options": {
                     "type": "object",
                     "properties": {
-                      "meta": { "type": "object", "properties": {} }
+                      "meta": { "type": "object", "properties": {} },
+                      "callbackUrl": { "type": "string", "format": "uri" }
                     }
                   }
                 },
@@ -625,7 +628,8 @@
                 }
               }
             }
-          }
+          },
+          "204": { "description": "No content when using a webhook" }
         }
       }
     },
