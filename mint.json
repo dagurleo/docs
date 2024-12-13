@@ -59,6 +59,10 @@
       "pages": ["projects/intro", "projects/billing"]
     },
     {
+      "group": "Integrations",
+      "pages": ["integrations/discord"]
+    },
+    {
       "group": "SDKS",
       "pages": [
         {
