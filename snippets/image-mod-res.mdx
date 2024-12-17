@@ -23,6 +23,14 @@ Example: `https://example.com/image.jpg`
       Example: `https://example.com/webhook`
     </ResponseField>
 
+    <ResponseField name="defer" type="boolean">
+      Whether to defer the moderation request.
+      If this value is true the request will be queued and you will receive the response later in a webhook that you have set up. Or you can look it up
+      later using the id returned.
+
+      Example: `true`
+    </ResponseField>
+
   </Expandable>
 </ResponseField>
 

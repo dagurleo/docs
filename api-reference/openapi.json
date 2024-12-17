@@ -28,7 +28,9 @@
                     "type": "object",
                     "properties": {
                       "meta": { "type": "object", "properties": {} },
-                      "callbackUrl": { "type": "string", "format": "uri" }
+                      "callbackUrl": { "type": "string", "format": "uri" },
+                      "defer": { "type": "boolean" },
+                      "actorId": { "type": "string" }
                     }
                   }
                 },
@@ -192,15 +194,9 @@
                       "required": ["requestId", "timestamp"]
                     },
                     "meta": {
-                      "type": "object",
-                      "properties": {
-                        "example": {
-                          "type": "string",
-                          "description": "The metadata of the request",
-                          "example": "This is the metadata"
-                        }
-                      },
-                      "required": ["example"]
+                      "nullable": true,
+                      "description": "The metadata of the request",
+                      "example": "This is the metadata"
                     },
                     "hash": {
                       "type": "string",
@@ -222,14 +218,24 @@
                     "filteredContent",
                     "content",
                     "request",
-                    "meta",
                     "hash"
                   ]
                 }
               }
             }
           },
-          "204": { "description": "No content when using a webhook" }
+          "201": {
+            "description": "Returns 201 moderation created with the id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": { "id": { "type": "string" } },
+                  "required": ["id"]
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -403,15 +409,9 @@
                       "required": ["requestId", "timestamp"]
                     },
                     "meta": {
-                      "type": "object",
-                      "properties": {
-                        "example": {
-                          "type": "string",
-                          "description": "The metadata of the request",
-                          "example": "This is the metadata"
-                        }
-                      },
-                      "required": ["example"]
+                      "nullable": true,
+                      "description": "The metadata of the request",
+                      "example": "This is the metadata"
                     },
                     "hash": {
                       "type": "string",
@@ -433,7 +433,6 @@
                     "filteredContent",
                     "content",
                     "request",
-                    "meta",
                     "hash"
                   ]
                 }
@@ -480,7 +479,9 @@
                     "type": "object",
                     "properties": {
                       "meta": { "type": "object", "properties": {} },
-                      "callbackUrl": { "type": "string", "format": "uri" }
+                      "callbackUrl": { "type": "string", "format": "uri" },
+                      "defer": { "type": "boolean" },
+                      "actorId": { "type": "string" }
                     }
                   }
                 },
@@ -491,7 +492,7 @@
         },
         "responses": {
           "200": {
-            "description": "Response of the moderated text",
+            "description": "Response of the moderated image",
             "content": {
               "application/json": {
                 "schema": {
@@ -597,15 +598,9 @@
                       "required": ["reject", "review"]
                     },
                     "meta": {
-                      "type": "object",
-                      "properties": {
-                        "example": {
-                          "type": "string",
-                          "description": "The metadata of the request",
-                          "example": "This is the metadata"
-                        }
-                      },
-                      "required": ["example"]
+                      "nullable": true,
+                      "description": "The metadata of the request",
+                      "example": "This is the metadata"
                     },
                     "hash": {
                       "type": "string",
@@ -622,14 +617,24 @@
                     "topics",
                     "nsfwCategories",
                     "suggestedActions",
-                    "meta",
                     "hash"
                   ]
                 }
               }
             }
           },
-          "204": { "description": "No content when using a webhook" }
+          "201": {
+            "description": "Returns 201 moderation created with the id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": { "id": { "type": "string" } },
+                  "required": ["id"]
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -756,15 +761,9 @@
                       "required": ["reject", "review"]
                     },
                     "meta": {
-                      "type": "object",
-                      "properties": {
-                        "example": {
-                          "type": "string",
-                          "description": "The metadata of the request",
-                          "example": "This is the metadata"
-                        }
-                      },
-                      "required": ["example"]
+                      "nullable": true,
+                      "description": "The metadata of the request",
+                      "example": "This is the metadata"
                     },
                     "hash": {
                       "type": "string",
@@ -781,7 +780,6 @@
                     "topics",
                     "nsfwCategories",
                     "suggestedActions",
-                    "meta",
                     "hash"
                   ]
                 }

@@ -55,13 +55,10 @@
       "pages": ["introduction", "quickstart"]
     },
     {
-      "group": "Projects",
-      "pages": ["projects/intro", "projects/billing"]
-    },
-    {
       "group": "Integrations",
       "pages": ["integrations/discord"]
     },
+
     {
       "group": "SDKS",
       "pages": [
@@ -97,6 +94,10 @@
         "api-reference/image/create",
         "api-reference/image/delete"
       ]
+    },
+    {
+      "group": "Projects",
+      "pages": ["projects/intro", "projects/billing"]
     }
   ],
   "footerSocials": {
