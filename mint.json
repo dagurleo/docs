@@ -52,7 +52,7 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart"]
+      "pages": ["introduction"]
     },
     {
       "group": "Integrations",
@@ -67,10 +67,31 @@
           "icon": "js",
           "pages": [
             "sdks/typescript/installation",
-            "sdks/typescript/moderate-text",
-            "sdks/typescript/get-text",
-            "sdks/typescript/moderate-image",
-            "sdks/typescript/get-image"
+            {
+              "group": "Text",
+              "icon": "text",
+              "pages": [
+                "sdks/typescript/moderate-text",
+                "sdks/typescript/get-text"
+              ]
+            },
+            {
+              "group": "Images",
+              "icon": "Image",
+              "pages": [
+                "sdks/typescript/moderate-image",
+                "sdks/typescript/get-image"
+              ]
+            },
+            {
+              "group": "Queues",
+              "icon": "Files",
+              "pages": [
+                "sdks/typescript/add-queue-item",
+                "sdks/typescript/get-queue-item"
+              ]
+            },
+            "sdks/typescript/webhooks"
           ]
         }
       ]
@@ -94,6 +115,10 @@
         "api-reference/image/create",
         "api-reference/image/delete"
       ]
+    },
+    {
+      "group": "Queues",
+      "pages": ["api-reference/queues/get-item", "api-reference/queues/create"]
     },
     {
       "group": "Projects",

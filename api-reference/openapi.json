@@ -30,7 +30,11 @@
                       "meta": { "type": "object", "properties": {} },
                       "callbackUrl": { "type": "string", "format": "uri" },
                       "defer": { "type": "boolean" },
-                      "actorId": { "type": "string" }
+                      "actorId": { "type": "string" },
+                      "bannedWords": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                      }
                     }
                   }
                 },
@@ -803,6 +807,110 @@
           }
         ],
         "responses": { "204": { "description": "No content" } }
+      }
+    },
+    "/queues/{queueId}": {
+      "post": {
+        "security": [{ "Bearer": [] }],
+        "requestBody": {
+          "description": "image",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["text", "image"],
+                    "description": "Type of content to moderate",
+                    "example": "text"
+                  },
+                  "content": {
+                    "type": "string",
+                    "description": "The content to moderate. Can either be a text, url or base64 encoded image",
+                    "example": "This is a very cool api"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {},
+                    "description": "Any metadata you want to store with the content",
+                    "example": "{}"
+                  },
+                  "actorId": {
+                    "type": "string",
+                    "description": "An ID of a user that is performing an action in your system",
+                    "example": "123"
+                  }
+                },
+                "required": ["type", "content"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response of the created queue item",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string" },
+                    "status": {
+                      "type": "string",
+                      "enum": ["processing", "pending"]
+                    }
+                  },
+                  "required": ["id", "status"]
+                }
+              }
+            }
+          },
+          "404": { "description": "Queue not found" }
+        }
+      }
+    },
+    "/queues/{queueId}/items/{itemId}": {
+      "get": {
+        "security": [{ "Bearer": [] }],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 3,
+              "example": "27fbdc0b-b295-46ce-93f5-81b2fc08a381"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch a queue item by its ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string" },
+                    "type": { "type": "string", "enum": ["text", "image"] },
+                    "accepted": { "type": "boolean" },
+                    "status": {
+                      "type": "string",
+                      "enum": ["pending", "accepted", "rejected", "error"]
+                    },
+                    "content": { "type": "string" },
+                    "moderation": { "nullable": true }
+                  },
+                  "required": ["id", "type", "accepted", "status", "content"]
+                }
+              }
+            }
+          },
+          "404": { "description": "Queue item not found" }
+        }
       }
     }
   }

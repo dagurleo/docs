@@ -1,0 +1,49 @@
+## Response
+
+import TextMod from "/snippets/text-mod.mdx";
+
+The `QueueItemResponse` object contains the following properties:
+
+<ResponseField name="id" type="string" required>
+The ID of the moderation request.
+
+Example: `27fbdc0b-b295-46ce-93f5-81b2fc08a381`
+
+</ResponseField>
+
+<ResponseField name="type" type="string" required>
+The type of the item.
+
+Example: `text`
+
+</ResponseField>
+
+<ResponseField name="accepted" type="boolean" required>
+Wether the item has been accepted or not.
+
+Example: `true`
+
+</ResponseField>
+<ResponseField name="status" type="string" required>
+The status of the item.
+available status values are:
+- processing
+- pending
+- accepted
+- rejected
+
+Example: `accepted`
+
+</ResponseField>
+<ResponseField name="content" type="string" required>
+The original content of the item.
+
+Example: `Hello world`
+
+</ResponseField>
+
+<ResponseField name="moderation" type="object" optional>
+  <Expandable title="Moderation">
+    <TextMod />
+  </Expandable>
+</ResponseField>

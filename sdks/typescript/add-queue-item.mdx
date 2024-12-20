@@ -1,0 +1,59 @@
+---
+title: "Add Queue Item"
+description: "Add an item to a queue"
+---
+
+To add an item to a queue you can use the queue().addItem method.
+
+```ts index.ts
+import { ContentMod } from "@contentmod/sdk";
+
+const contentMod = new ContentMod({
+  publicKey: "<YOUR_PUBLIC_KEY>",
+  secretKey: "<YOUR_SECRET_KEY>",
+});
+
+const queueId = "<QUEUE_ID>";
+
+const queue = contentMod.queue(queueId);
+
+// Add an item to the queue
+const res = await queue.addItem({
+  type: "text", // Can also be image
+  content: "Some bad text",
+});
+^?
+// {"id": "27fbdc0b-b295-46ce-93f5-81b2fc08a381", "status": "pending"}
+
+console.log(res);
+
+//
+```
+
+## Request
+
+<ResponseField name="type" type="string" required>
+The type of the item to add to the queue.
+
+Example: `text` `image`
+
+</ResponseField>
+
+<ResponseField name="content" type="string" required>
+The content of the item to add to the queue. Either text, image url or base64 encoded image.
+
+Example: `Hello world` `https://example.com/image.jpg` `/9j/4AAQSkZJRgABAQAASABIAAD/...`
+
+</ResponseField>
+<ResponseField name="actorId" type="string" optional>
+An ID of a user that is performing an action in your system.
+
+Example: `123`
+
+</ResponseField>
+<ResponseField name="meta" type="object" optional>
+Any additional metadata you want to include with the moderation request that will be saved.
+
+Example: `{"userId": "1234"}`
+
+</ResponseField>
