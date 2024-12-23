@@ -1,0 +1,46 @@
+---
+title: "Review Queues"
+description: "Review queues to moderate content"
+---
+
+<img
+  src="/assets/queue-dashboard.png"
+  className="aspect-[16/10] rounded-md shadow-lg bg-black border"
+/>
+
+## Get started
+
+To get started with Review Queues, head to the Create Queue page and follow the steps to create a new queue.
+Choose wether to create a fully automated queue or a manual queue.
+
+### Fully Automated Queue
+
+A fully automated queue will automatically accept or reject content based on the parameters you set when you create the queue.
+
+You can choose wether to fully reject content or put it into a manual review.
+
+A fully automated queue requires a paid plan to use.
+
+### Manual Review Queue
+
+A manual review queue will require you to manually accept or review every single item in the queue. You can set it so it runs the moderation AI
+to generate a moderation report to help you review the content.
+
+A fully manual queue is available for every plan and is free to use forever.
+
+### Posting Content
+
+If you are using one of the SDKs, you can head over to the [SDKs](/sdks) section to find out how to post content to a queue.
+
+If you are integrating through our API, you can use the [Add Queue Item](/api-reference/queues/create) endpoint to post content to a queue.
+
+### Getting Queue ID
+
+Once you have created a queue, you can find the queue ID in the URL of the dashboard. The queue ID is the last part of the URL.
+
+Or you can click the Copy button that is next to the name of the queue in the dashboard.
+
+<img
+  src="/assets/queue-copy.png"
+  className="aspect-[16/10] rounded-md shadow-lg bg-black border"
+/>

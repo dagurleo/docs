@@ -58,6 +58,10 @@
       "group": "Integrations",
       "pages": ["integrations/discord"]
     },
+    {
+      "group": "Queues",
+      "pages": ["queues/intro"]
+    },
 
     {
       "group": "SDKS",
